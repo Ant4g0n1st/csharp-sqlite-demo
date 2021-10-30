@@ -9,7 +9,7 @@
     <ScrollViewer>
         <ListView>
             <ListView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate DataType="{Binding UserModel}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Name}"></TextBlock>
                         <TextBlock Text="{Binding LastName}"></TextBlock>

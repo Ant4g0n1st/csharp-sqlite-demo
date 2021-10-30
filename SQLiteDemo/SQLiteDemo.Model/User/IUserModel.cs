@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SQLiteDemo.Model.User
 {
-    interface IUserModel
+    public interface IUserModel
     {
         string Name { get; set; }
         string LastName { get; set; }

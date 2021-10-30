@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteDemo.Bootstrapper", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteDemo.View", "SQLiteDemo.View\SQLiteDemo.View.csproj", "{D2449CC0-BF85-4945-A023-1BD72C1EA1A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteDemo.Model", "SQLiteDemo.Model\SQLiteDemo.Model.csproj", "{7920192B-DDE4-4174-82CB-B0128727E289}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D2449CC0-BF85-4945-A023-1BD72C1EA1A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2449CC0-BF85-4945-A023-1BD72C1EA1A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2449CC0-BF85-4945-A023-1BD72C1EA1A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7920192B-DDE4-4174-82CB-B0128727E289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7920192B-DDE4-4174-82CB-B0128727E289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7920192B-DDE4-4174-82CB-B0128727E289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7920192B-DDE4-4174-82CB-B0128727E289}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
