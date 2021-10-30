@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using SQLiteDemo.View;
+using SQLiteDemo.DataAccess.Common.Interfaces;
+using SQLiteDemo.DataAccess.SQLite.User;
 
 namespace SQLiteDemo.Bootstrapper.Extensions
 {
@@ -11,6 +13,7 @@ namespace SQLiteDemo.Bootstrapper.Extensions
             builder.ConfigureServices((context, services) =>
             {
                 services.AddSingleton<MainWindow>();
+                services.AddTransient<IUserRepository, SqliteUserRepository>();
             });
 
     }
