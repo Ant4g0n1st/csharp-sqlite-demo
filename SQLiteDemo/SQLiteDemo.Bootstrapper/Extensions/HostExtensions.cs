@@ -13,7 +13,7 @@ namespace SQLiteDemo.Bootstrapper.Extensions
             builder.ConfigureServices((context, services) =>
             {
                 services.AddSingleton<MainWindow>();
-                services.AddTransient<IUserRepository, SqliteUserRepository>();
+                services.AddScoped<IUserRepository, SqliteUserRepository>();
             });
 
     }
