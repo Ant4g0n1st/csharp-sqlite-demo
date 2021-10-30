@@ -1,10 +1,13 @@
 ﻿using SQLiteDemo.Model.User;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace SQLiteDemo.ViewModel.UserList
+namespace SQLiteDemo.DataAccess.Common.Interfaces
 {
-    interface IUserListViewModel
+    public interface IUserRepository
     {
 
         Task<IEnumerable<IUserModel>> GetAllUsers();
