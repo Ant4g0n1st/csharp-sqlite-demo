@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SQLiteDemo.ViewModel.UserList
+namespace SQLiteDemo.ViewModel.MainWindow
 {
-    interface IUserListViewModel
+    public interface IMainWindowViewModel
     {
 
         Task<IEnumerable<IUserModel>> GetAllUsers();

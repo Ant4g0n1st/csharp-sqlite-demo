@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SQLiteDemo.View;
 using SQLiteDemo.DataAccess.Common.Interfaces;
 using SQLiteDemo.DataAccess.SQLite.User;
+using SQLiteDemo.ViewModel.MainWindow;
 
 namespace SQLiteDemo.Bootstrapper.Extensions
 {
@@ -12,8 +13,9 @@ namespace SQLiteDemo.Bootstrapper.Extensions
         public static IHostBuilder ConfigureWPFAppServices(this IHostBuilder builder) =>
             builder.ConfigureServices((context, services) =>
             {
-                services.AddSingleton<MainWindow>();
+                services.AddScoped<IMainWindowViewModel, MainWindowViewModel>();
                 services.AddScoped<IUserRepository, SqliteUserRepository>();
+                services.AddSingleton<MainWindow>();
             });
 
     }

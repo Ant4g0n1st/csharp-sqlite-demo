@@ -48,10 +48,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserList\IUserListViewModel.cs" />
-    <Compile Include="UserList\UserListViewModel.cs" />
+    <Compile Include="MainWindow\IMainWindowViewModel.cs" />
+    <Compile Include="MainWindow\MainWindowViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SQLiteDemo.DataAccess.Common\SQLiteDemo.DataAccess.Common.csproj">
+      <Project>{A23BBB01-718A-4276-AE40-58A6D2C58080}</Project>
+      <Name>SQLiteDemo.DataAccess.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SQLiteDemo.Model\SQLiteDemo.Model.csproj">
       <Project>{7920192b-dde4-4174-82cb-b0128727e289}</Project>
       <Name>SQLiteDemo.Model</Name>

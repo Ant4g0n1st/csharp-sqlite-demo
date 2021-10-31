@@ -9,6 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteDemo.View", "SQLiteDe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteDemo.Model", "SQLiteDemo.Model\SQLiteDemo.Model.csproj", "{7920192B-DDE4-4174-82CB-B0128727E289}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteDemo.ViewModel", "SQLiteDemo.ViewModel\SQLiteDemo.ViewModel.csproj", "{FB96B3AB-55D8-495C-9F0E-D25B68E018AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLiteDemo.DataAccess", "SQLiteDemo.DataAccess", "{578AC149-43F5-4437-A49E-280238123DC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteDemo.DataAccess.SQLite", "SQLiteDemo.DataAccess.SQLite\SQLiteDemo.DataAccess.SQLite.csproj", "{1203A8A5-1225-4C25-ABDF-8CF6E349D7CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteDemo.DataAccess.Common", "SQLiteDemo.DataAccess.Common\SQLiteDemo.DataAccess.Common.csproj", "{A23BBB01-718A-4276-AE40-58A6D2C58080}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +35,25 @@ Global
 		{7920192B-DDE4-4174-82CB-B0128727E289}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7920192B-DDE4-4174-82CB-B0128727E289}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7920192B-DDE4-4174-82CB-B0128727E289}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB96B3AB-55D8-495C-9F0E-D25B68E018AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB96B3AB-55D8-495C-9F0E-D25B68E018AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB96B3AB-55D8-495C-9F0E-D25B68E018AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB96B3AB-55D8-495C-9F0E-D25B68E018AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1203A8A5-1225-4C25-ABDF-8CF6E349D7CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1203A8A5-1225-4C25-ABDF-8CF6E349D7CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1203A8A5-1225-4C25-ABDF-8CF6E349D7CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1203A8A5-1225-4C25-ABDF-8CF6E349D7CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A23BBB01-718A-4276-AE40-58A6D2C58080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A23BBB01-718A-4276-AE40-58A6D2C58080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A23BBB01-718A-4276-AE40-58A6D2C58080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A23BBB01-718A-4276-AE40-58A6D2C58080}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1203A8A5-1225-4C25-ABDF-8CF6E349D7CF} = {578AC149-43F5-4437-A49E-280238123DC3}
+		{A23BBB01-718A-4276-AE40-58A6D2C58080} = {578AC149-43F5-4437-A49E-280238123DC3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5AE212D0-85C0-4193-B911-015A4D6AA201}

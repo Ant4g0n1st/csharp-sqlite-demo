@@ -19,6 +19,7 @@ namespace SQLiteDemo.DataAccess.SQLite.User
 
         public async Task<IEnumerable<IUserModel>> GetAllUsers()
         {
+            logger.LogInformation("Getting all users from the database...");
             List<IUserModel> users = new List<IUserModel>();
             using (SqliteConnection connection = new SqliteConnection(GetConnectionString()))
             {

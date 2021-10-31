@@ -247,6 +247,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SQLiteDemo.DataAccess.Common\SQLiteDemo.DataAccess.Common.csproj">
+      <Project>{A23BBB01-718A-4276-AE40-58A6D2C58080}</Project>
+      <Name>SQLiteDemo.DataAccess.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLiteDemo.DataAccess.SQLite\SQLiteDemo.DataAccess.SQLite.csproj">
+      <Project>{1203A8A5-1225-4C25-ABDF-8CF6E349D7CF}</Project>
+      <Name>SQLiteDemo.DataAccess.SQLite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLiteDemo.ViewModel\SQLiteDemo.ViewModel.csproj">
+      <Project>{FB96B3AB-55D8-495C-9F0E-D25B68E018AB}</Project>
+      <Name>SQLiteDemo.ViewModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SQLiteDemo.View\SQLiteDemo.View.csproj">
       <Project>{d2449cc0-bf85-4945-a023-1bd72c1ea1a9}</Project>
       <Name>SQLiteDemo.View</Name>
