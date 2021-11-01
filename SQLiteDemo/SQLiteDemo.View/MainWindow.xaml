@@ -12,7 +12,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate DataType="{x:Type model:UserModel}">
                     <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{Binding FullName}" FontSize="20" FontWeight="Bold"></TextBlock>
+                        <TextBlock Text="{Binding FullName}" FontSize="16" FontWeight="Bold"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

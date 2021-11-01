@@ -18,16 +18,16 @@ namespace SQLiteDemo.DataAccess.SQLite.User
         {
             logger.LogInformation("Getting all users from the database...");
             List<IUserModel> users = new List<IUserModel>();
-            using (var connection = new SQLiteConnection(GetConnectionString()))
+            using (SQLiteConnection connection = new SQLiteConnection(GetConnectionString()))
             {
                 connection.Open();
-                using (var command = connection.CreateCommand())
+                using (SQLiteCommand command = connection.CreateCommand())
                 {
                     command.CommandText = "select * from Users";
-                    var reader = command.ExecuteReader();
-                    while (reader.Read())
+                    SQLiteDataReader reader = command.ExecuteReader();
+                    while (await reader.ReadAsync())
                     {
-                        var user = new UserModel
+                        UserModel user = new UserModel
                         {
                             Name = reader["Name"].ToString(),
                             LastName = reader["LastName"].ToString(),

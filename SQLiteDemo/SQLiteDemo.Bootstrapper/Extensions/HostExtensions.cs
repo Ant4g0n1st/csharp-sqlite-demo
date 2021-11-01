@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using SQLiteDemo.View;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using SQLiteDemo.DataAccess.Common.Interfaces;
 using SQLiteDemo.DataAccess.SQLite.User;
+using SQLiteDemo.View;
 using SQLiteDemo.ViewModel.MainWindow;
 
 namespace SQLiteDemo.Bootstrapper.Extensions
