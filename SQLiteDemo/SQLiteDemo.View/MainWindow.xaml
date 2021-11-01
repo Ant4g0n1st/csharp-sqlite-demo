@@ -4,15 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SQLiteDemo.View"
+        xmlns:model="clr-namespace:SQLiteDemo.Model.User;assembly=SQLiteDemo.Model"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <ScrollViewer>
         <ListView x:Name="UserList">
             <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Name}"></TextBlock>
-                        <TextBlock Text="{Binding LastName}"></TextBlock>
+                <DataTemplate DataType="{x:Type model:UserModel}">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding FullName}" FontSize="20" FontWeight="Bold"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

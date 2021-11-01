@@ -18,9 +18,8 @@ namespace SQLiteDemo.ViewModel.MainWindow
 
         public MainWindowViewModel(
             ILogger<MainWindowViewModel> logger,
-            IUserRepository userRepository,
-            IMainWindowViewModel viewModel) =>
-            (this.logger, this.userRepository, this.viewModel) = (logger, userRepository, viewModel);
+            IUserRepository userRepository) =>
+            (this.logger, this.userRepository) = (logger, userRepository);
         public async Task<IEnumerable<IUserModel>> GetAllUsers()
         {
             logger.LogInformation("Getting all users from repository...");

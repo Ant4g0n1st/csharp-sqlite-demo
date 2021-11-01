@@ -23,6 +23,7 @@ namespace SQLiteDemo.View
         protected override async void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
+            logger.LogInformation("Fetching User List...");
             UserList.ItemsSource = await viewModel.GetAllUsers();
         }
     }

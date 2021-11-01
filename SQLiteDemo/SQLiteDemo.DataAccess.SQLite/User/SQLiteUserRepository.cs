@@ -1,12 +1,9 @@
-﻿using Microsoft.Data.Sqlite;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using SQLiteDemo.DataAccess.Common.Interfaces;
 using SQLiteDemo.Model.User;
-using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
+using System.Data.SQLite;
 using System.Threading.Tasks;
 
 namespace SQLiteDemo.DataAccess.SQLite.User
@@ -21,20 +18,19 @@ namespace SQLiteDemo.DataAccess.SQLite.User
         {
             logger.LogInformation("Getting all users from the database...");
             List<IUserModel> users = new List<IUserModel>();
-            using (SqliteConnection connection = new SqliteConnection(GetConnectionString()))
+            using (var connection = new SQLiteConnection(GetConnectionString()))
             {
                 connection.Open();
-                using (SqliteCommand command = new SqliteCommand())
+                using (var command = connection.CreateCommand())
                 {
                     command.CommandText = "select * from Users";
-                    command.Connection = connection;
-                    SqliteDataReader reader = command.ExecuteReader();
+                    var reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        UserModel user = new UserModel
+                        var user = new UserModel
                         {
                             Name = reader["Name"].ToString(),
-                            LastName = reader["LastName"].ToString()
+                            LastName = reader["LastName"].ToString(),
                         };
                         users.Add(user);
                         logger.LogInformation($"User found : {user}");
