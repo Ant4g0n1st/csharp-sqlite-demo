@@ -8,14 +8,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <ScrollViewer>
-        <ListView x:Name="UserList">
-            <ListView.ItemTemplate>
+        <ItemsControl x:Name="UserList">
+            <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type model:UserModel}">
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{Binding FullName}" FontSize="16" FontWeight="Bold"></TextBlock>
-                    </StackPanel>
+                    <Border BorderBrush="Black"
+                            MouseEnter="Border_MouseEnter"
+                            MouseLeftButtonDown="Border_MouseLeftButtonDown"
+                            BorderThickness="1"
+                            Padding="5"
+                            Margin="1">
+                        <TextBlock Text="{Binding FullName}"
+                               FontWeight="Bold"
+                               FontSize="16"></TextBlock>
+                    </Border>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
     </ScrollViewer>
 </Window>
