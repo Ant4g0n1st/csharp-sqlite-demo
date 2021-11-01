@@ -97,7 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Users.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
