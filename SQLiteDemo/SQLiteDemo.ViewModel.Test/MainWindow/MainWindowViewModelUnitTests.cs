@@ -4,7 +4,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SQLiteDemo.DataAccess.Common.Interfaces;
 using SQLiteDemo.ViewModel.MainWindow;
 using SQLiteDemo.ViewModel.Test.Util;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 
