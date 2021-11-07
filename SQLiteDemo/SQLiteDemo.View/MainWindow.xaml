@@ -6,17 +6,17 @@
         xmlns:local="clr-namespace:SQLiteDemo.View"
         xmlns:model="clr-namespace:SQLiteDemo.Model.User;assembly=SQLiteDemo.Model"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <ScrollViewer>
+        Title="Random App" Height="450" Width="800">
+    <ScrollViewer Background="LightGray">
         <ItemsControl x:Name="UserList">
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type model:UserModel}">
                     <Button Content="{Binding FullName}"
                             MouseEnter="Button_MouseEnter"
                             Click="Button_Click"
-                            Background="Transparent"
+                            Background="White"
                             BorderBrush="Black"
-                            BorderThickness="1"
+                            BorderThickness="2"
                             FontWeight="Bold"
                             FontSize="16"
                             Padding="5"
