@@ -1,5 +1,5 @@
 ﻿using SQLiteDemo.Model.User;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace SQLiteDemo.ViewModel.MainWindow
@@ -7,7 +7,9 @@ namespace SQLiteDemo.ViewModel.MainWindow
     public interface IMainWindowViewModel
     {
 
-        Task<IEnumerable<IUserModel>> GetAllUsers();
+        Task<ObservableCollection<IUserModel>> GetAllUsers();
+
+        Task DeleteUser(IUserModel user);
 
     }
 }

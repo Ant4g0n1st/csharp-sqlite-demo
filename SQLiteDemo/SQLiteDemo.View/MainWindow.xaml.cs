@@ -30,22 +30,31 @@ namespace SQLiteDemo.View
             UserList.ItemsSource = await viewModel.GetAllUsers();
         }
 
-        private void Border_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Border border = e.Source as Border;
-            if (border != null)
+            Button button = e.Source as Button;
+            if (button != null)
             {
-                border.Background = Brushes.LightCyan;
+                IUserModel user = button.DataContext as IUserModel;
+                MessageBoxResult result = MessageBox.Show(
+                    $"Remove {user.FullName}?",
+                    "Please Confirm",
+                    MessageBoxButton.YesNo);
+                if (result.Equals(MessageBoxResult.Yes))
+                {
+                    viewModel.DeleteUser(user);
+                }
+                e.Handled = true;
             }
         }
 
-        private void Border_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            Border border = e.Source as Border;
-            if (border != null)
+            Button button = e.Source as Button;
+            if (button != null)
             {
-                IUserModel user = border.DataContext as IUserModel;
-                MessageBox.Show($"You selected user {user.FullName}");
+                button.Background = Brushes.LightGray;
+                e.Handled = true;
             }
         }
     }
