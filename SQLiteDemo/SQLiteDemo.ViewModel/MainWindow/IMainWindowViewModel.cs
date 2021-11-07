@@ -9,7 +9,7 @@ namespace SQLiteDemo.ViewModel.MainWindow
 
         Task<ObservableCollection<IUserModel>> GetAllUsers();
 
-        Task DeleteUser(IUserModel user);
+        Task<bool> RemoveUser(IUserModel user);
 
     }
 }

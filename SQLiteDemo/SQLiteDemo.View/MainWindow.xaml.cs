@@ -42,7 +42,7 @@ namespace SQLiteDemo.View
                     MessageBoxButton.YesNo);
                 if (result.Equals(MessageBoxResult.Yes))
                 {
-                    viewModel.DeleteUser(user);
+                    viewModel.RemoveUser(user);
                 }
                 e.Handled = true;
             }

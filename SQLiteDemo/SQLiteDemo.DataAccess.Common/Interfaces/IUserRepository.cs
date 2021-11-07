@@ -8,6 +8,7 @@ namespace SQLiteDemo.DataAccess.Common.Interfaces
     {
 
         Task<IEnumerable<IUserModel>> GetAllUsers();
+        Task<bool> RemoveUser(IUserModel user);
 
     }
 }

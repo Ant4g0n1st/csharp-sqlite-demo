@@ -18,10 +18,14 @@ namespace SQLiteDemo.ViewModel.MainWindow
             IUserRepository userRepository) =>
             (this.logger, this.userRepository) = (logger, userRepository);
 
-        public Task DeleteUser(IUserModel user)
+        public async Task<bool> RemoveUser(IUserModel user)
         {
-            users.Remove(user);
-            return Task.CompletedTask;
+            bool removed = await userRepository.RemoveUser(user);
+            if (removed)
+            {
+                users.Remove(user);
+            }
+            return removed;
         }
 
         public async Task<ObservableCollection<IUserModel>> GetAllUsers()
