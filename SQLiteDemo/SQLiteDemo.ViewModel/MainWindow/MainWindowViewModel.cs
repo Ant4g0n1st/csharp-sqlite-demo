@@ -28,10 +28,14 @@ namespace SQLiteDemo.ViewModel.MainWindow
             return removed;
         }
 
-        public async Task<ObservableCollection<IUserModel>> GetAllUsers()
+        public async Task<ObservableCollection<IUserModel>> GetUsers()
         {
-            logger.LogInformation("Getting all users from repository...");
-            return users = new ObservableCollection<IUserModel>(await userRepository.GetAllUsers());
+            return users;
+        }
+
+        public async Task PopulateUsers()
+        {
+            users = new ObservableCollection<IUserModel>(await userRepository.GetAllUsers());
         }
     }
 }

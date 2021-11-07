@@ -26,8 +26,8 @@ namespace SQLiteDemo.View
         protected override async void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
-            logger.LogInformation("Fetching User List...");
-            UserList.ItemsSource = await viewModel.GetAllUsers();
+            await viewModel.PopulateUsers();
+            UserList.ItemsSource = await viewModel.GetUsers();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
