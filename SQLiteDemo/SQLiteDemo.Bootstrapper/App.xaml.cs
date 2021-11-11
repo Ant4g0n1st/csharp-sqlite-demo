@@ -18,14 +18,14 @@ namespace SQLiteDemo.View
             host = Host.CreateDefaultBuilder()
                 .ConfigureWPFAppServices()
                 .Build();
-            host.StartAsync();
         }
 
-        protected override void OnStartup(StartupEventArgs e)
+        protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             MainWindow = host.Services.GetRequiredService<MainWindow>();
             MainWindow.Show();
+            await host.StartAsync();
         }
 
         protected override async void OnExit(ExitEventArgs e)
