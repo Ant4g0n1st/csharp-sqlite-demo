@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using SQLiteDemo.DataAccess.Common.Events;
 using SQLiteDemo.DataAccess.Common.Interfaces;
 using SQLiteDemo.Model.User;
 using System;
@@ -12,6 +13,8 @@ namespace SQLiteDemo.DataAccess.SQLite.User
     public class SqliteUserRepository : IUserRepository
     {
         private ILogger<SqliteUserRepository> logger;
+
+        public event EventHandler<UserModelEventArgs> UserRemoved;
 
         public SqliteUserRepository(ILogger<SqliteUserRepository> logger) => this.logger = logger;
 
@@ -46,10 +49,9 @@ namespace SQLiteDemo.DataAccess.SQLite.User
             return ConfigurationManager.ConnectionStrings["SQLite-Users"].ConnectionString;
         }
 
-        public async Task<bool> RemoveUser(IUserModel user)
+        public async Task RemoveUser(IUserModel user)
         {
             logger.LogInformation($"Removing user with id {user.ID} from the database...");
-            bool removed = false;
             using (SQLiteConnection connection = new SQLiteConnection(GetConnectionString()))
             {
                 connection.Open();
@@ -58,14 +60,21 @@ namespace SQLiteDemo.DataAccess.SQLite.User
                     {
                         command.CommandText = "delete from Users where ID=@id";
                         command.Parameters.AddWithValue("id", user.ID);
-                        removed = await command.ExecuteNonQueryAsync() > 0;
+                        if (await command.ExecuteNonQueryAsync() > 0)
+                        {
+                            OnUserRemoved(user);
+                        }
                     }
                     catch (Exception ex)
                     {
-                        logger.LogError("Exception while removing user: {ex}");
+                        logger.LogError($"Exception while removing user: {ex.Message}");
                     }
             }
-            return removed;
+        }
+
+        protected virtual void OnUserRemoved(IUserModel user)
+        {
+            UserRemoved?.Invoke(this, new UserModelEventArgs { User = user });
         }
     }
 }

@@ -1,17 +1,13 @@
-﻿using SQLiteDemo.Model.User;
+﻿using SQLiteDemo.ViewModel.User;
+using System;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace SQLiteDemo.ViewModel.MainWindow
 {
-    public interface IMainWindowViewModel
+    public interface IMainWindowViewModel : INotifyPropertyChanged, IDisposable
     {
-
-        Task<ObservableCollection<IUserModel>> GetUsers();
-
-        Task PopulateUsers();
-
-        Task<bool> RemoveUser(IUserModel user);
+        ObservableCollection<IUserViewModel> AllUsers { get; }
 
     }
 }

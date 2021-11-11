@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.Logging;
+using SQLiteDemo.DataAccess.Common.Events;
 using SQLiteDemo.DataAccess.Common.Interfaces;
-using SQLiteDemo.Model.User;
+using SQLiteDemo.ViewModel.User;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Linq;
 
 namespace SQLiteDemo.ViewModel.MainWindow
 {
@@ -11,31 +13,36 @@ namespace SQLiteDemo.ViewModel.MainWindow
         private readonly ILogger<MainWindowViewModel> logger;
         private readonly IUserRepository userRepository;
 
-        private ObservableCollection<IUserModel> users;
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        public MainWindowViewModel(
-            ILogger<MainWindowViewModel> logger,
-            IUserRepository userRepository) =>
-            (this.logger, this.userRepository) = (logger, userRepository);
+        public ObservableCollection<IUserViewModel> AllUsers { get; private set; }
 
-        public async Task<bool> RemoveUser(IUserModel user)
+        public MainWindowViewModel(ILogger<MainWindowViewModel> logger, IUserRepository userRepository)
         {
-            bool removed = await userRepository.RemoveUser(user);
-            if (removed)
+            this.logger = logger;
+            this.userRepository = userRepository;
+            InitializeViewModel();
+        }
+
+        private async void InitializeViewModel()
+        {
+            AllUsers = new ObservableCollection<IUserViewModel>();
+            var users = await userRepository.GetAllUsers();
+            foreach (var user in users)
             {
-                users.Remove(user);
+                AllUsers.Add(new UserViewModel(userRepository, user));
             }
-            return removed;
+            userRepository.UserRemoved += OnUserRemoved;
         }
 
-        public async Task<ObservableCollection<IUserModel>> GetUsers()
+        protected virtual void OnUserRemoved(object source, UserModelEventArgs args)
         {
-            return users;
+            AllUsers.Remove(AllUsers.First(user => user.ID == args.User.ID));
         }
 
-        public async Task PopulateUsers()
+        public void Dispose()
         {
-            users = new ObservableCollection<IUserModel>(await userRepository.GetAllUsers());
+            userRepository.UserRemoved -= OnUserRemoved;
         }
     }
 }

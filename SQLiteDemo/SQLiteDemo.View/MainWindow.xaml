@@ -5,29 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SQLiteDemo.View"
         xmlns:model="clr-namespace:SQLiteDemo.Model.User;assembly=SQLiteDemo.Model"
+        xmlns:uservm="clr-namespace:SQLiteDemo.ViewModel.User;assembly=SQLiteDemo.ViewModel"
         mc:Ignorable="d"
         Title="Random App" Height="450" Width="800">
-    <ScrollViewer Background="LightGray">
-        <ItemsControl x:Name="UserList">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate DataType="{x:Type model:UserModel}">
-                    <Button Content="{Binding FullName}"
-                            MouseEnter="Button_MouseEnter"
-                            Click="Button_Click"
-                            Background="White"
-                            BorderBrush="Black"
-                            BorderThickness="2"
-                            FontWeight="Bold"
-                            FontSize="16"
-                            Padding="5"
-                            Margin="1"/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal"></WrapPanel>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-        </ItemsControl>
-    </ScrollViewer>
+    <ListView ItemsSource="{Binding Path=AllUsers}">
+        <ListView.View>
+            <GridView>
+                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=ID}"/>
+                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}"/>
+                <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding Path=LastName}"/>
+                <GridViewColumn>
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Remove"
+                                    Command="{Binding Path=RemoveUserCommand}"
+                                    BorderThickness="0"
+                                    FontWeight="SemiBold"
+                                    Foreground="White"
+                                    Background="Red"
+                                    Padding="5"/>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+            </GridView>
+        </ListView.View>
+    </ListView>
 </Window>

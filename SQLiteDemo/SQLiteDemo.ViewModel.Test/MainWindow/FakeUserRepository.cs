@@ -1,5 +1,7 @@
-﻿using SQLiteDemo.DataAccess.Common.Interfaces;
+﻿using SQLiteDemo.DataAccess.Common.Events;
+using SQLiteDemo.DataAccess.Common.Interfaces;
 using SQLiteDemo.Model.User;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,6 +10,8 @@ namespace SQLiteDemo.ViewModel.Test.MainWindow
     class FakeUserRepository : IUserRepository
     {
         private List<IUserModel> users;
+
+        public event EventHandler<UserModelEventArgs> UserRemoved;
 
         public FakeUserRepository()
         {
@@ -37,17 +41,17 @@ namespace SQLiteDemo.ViewModel.Test.MainWindow
 
         public async Task<IEnumerable<IUserModel>> GetAllUsers()
         {
+            await Task.CompletedTask;
             return users;
         }
 
-        public async Task<bool> RemoveUser(IUserModel user)
+        public async Task RemoveUser(IUserModel user)
         {
             if (users.IndexOf(user) >= 0)
             {
                 users.Remove(user);
-                return true;
             }
-            return false;
+            await Task.CompletedTask;
         }
     }
 }

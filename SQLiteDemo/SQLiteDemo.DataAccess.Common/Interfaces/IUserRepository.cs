@@ -1,4 +1,6 @@
-﻿using SQLiteDemo.Model.User;
+﻿using SQLiteDemo.DataAccess.Common.Events;
+using SQLiteDemo.Model.User;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,7 +10,9 @@ namespace SQLiteDemo.DataAccess.Common.Interfaces
     {
 
         Task<IEnumerable<IUserModel>> GetAllUsers();
-        Task<bool> RemoveUser(IUserModel user);
+
+        event EventHandler<UserModelEventArgs> UserRemoved;
+        Task RemoveUser(IUserModel user);
 
     }
 }
